@@ -9,6 +9,9 @@ This is an experimental plugin for your alt:V Server.
 - Peds that flee out of their car will be removed from Game
 - If a car is upsidedown it will be reset
 ***
+## **ReadyToUse-Ressource
+The provided resource is ready to use with 500 vehicles generated on Server start
+***
 ### _**Known Bugs**_
 Vehicles can desync if there is no netowner at all for a vehicle
 ***
