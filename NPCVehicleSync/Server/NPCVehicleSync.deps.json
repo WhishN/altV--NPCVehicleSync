@@ -1,0 +1,85 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "NPCVehicleSync/1.0.0": {
+        "dependencies": {
+          "AltV.Net": "1.31.1",
+          "AltV.Net.Async": "1.31.1",
+          "Newtonsoft.Json": "12.0.3"
+        },
+        "runtime": {
+          "NPCVehicleSync.dll": {}
+        }
+      },
+      "AltV.Net/1.31.1": {
+        "runtime": {
+          "lib/netcoreapp3.1/AltV.Net.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "AltV.Net.Async/1.31.1": {
+        "dependencies": {
+          "AltV.Net": "1.31.1",
+          "System.Threading.Channels": "4.7.0"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/AltV.Net.Async.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Newtonsoft.Json/12.0.3": {
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.0.3.23909"
+          }
+        }
+      },
+      "System.Threading.Channels/4.7.0": {}
+    }
+  },
+  "libraries": {
+    "NPCVehicleSync/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "AltV.Net/1.31.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-gmUsPsvKVm2HhCDFh+D74ei2KXkr5D2cBFtKjojL1YY5+xGIVJrO/uxeIHAJVTj4/O/H/kIFCIWVnavLI0SZIg==",
+      "path": "altv.net/1.31.1",
+      "hashPath": "altv.net.1.31.1.nupkg.sha512"
+    },
+    "AltV.Net.Async/1.31.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-X32dKnaPM+ggk9nrEIQ9BIBaJfOS3jVW3AvGAqnrL6GuUaa4sY55vk+XtG0GrmODI+oXIpLUtVF7Bp0qrO4Glw==",
+      "path": "altv.net.async/1.31.1",
+      "hashPath": "altv.net.async.1.31.1.nupkg.sha512"
+    },
+    "Newtonsoft.Json/12.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
+      "path": "newtonsoft.json/12.0.3",
+      "hashPath": "newtonsoft.json.12.0.3.nupkg.sha512"
+    },
+    "System.Threading.Channels/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-gdOOXBhtt2UpTxYJm1DRmoqNfYg5ypvhzhVt0vxKhzxXFjS81r8yIOSFsJYLRa1Jc14GBAqCnjxJstO3zBN7gg==",
+      "path": "system.threading.channels/4.7.0",
+      "hashPath": "system.threading.channels.4.7.0.nupkg.sha512"
+    }
+  }
+}
