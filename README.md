@@ -8,6 +8,7 @@ This is an experimental plugin for your alt:V Server.
   - (Yes there is only one task at the moment)
 - Peds that flee out of their car will be removed from Game
 - If a car is upsidedown it will be reset
+- As for now, if you steal a vehicle and leave it a new driver will be generated
 ***
 ## **ReadyToUse-Ressource**
 The provided resource is ready to use with 500 vehicles generated on Server start
