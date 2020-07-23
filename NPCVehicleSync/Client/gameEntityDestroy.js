@@ -1,4 +1,4 @@
-import * as alt from 'alt';
+import * as alt from 'alt-client';
 import { NPCVehHandler } from './npcVehicleHandler.js';
 
 alt.log("[NPCVehicleHandler] Loaded GameEntityDestroy");
