@@ -1,0 +1,6 @@
+import * as GameEntityCreate from './Client/gameEntityCreate.js'
+import * as GameEntityDestroy from './Client/gameEntityDestroy.js'
+import * as GlobalPeds from './Client/globalPeds.js'
+import * as NPCVehicle from './Client/npcVehicle.js'
+import * as NPCVehicleHandler from './Client/npcVehicleHandler.js'
+import * as ServerEvents from './Client/serverEvents.js'

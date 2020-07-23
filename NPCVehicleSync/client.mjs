@@ -1,6 +1,0 @@
-import * as GameEntityCreate from './Client/gameEntityCreate.mjs'
-import * as GameEntityDestroy from './Client/gameEntityDestroy.mjs'
-import * as GlobalPeds from './Client/globalPeds.mjs'
-import * as NPCVehicle from './Client/npcVehicle.mjs'
-import * as NPCVehicleHandler from './Client/npcVehicleHandler.mjs'
-import * as ServerEvents from './Client/serverEvents.mjs'
