@@ -1,52 +1,52 @@
-import * as alt from 'alt'
-import * as native from 'natives'
-import { NPCVehicle } from './npcVehicle.js'
+import * as alt from 'alt';
+import * as native from 'natives';
+import { NPCVehicle } from './npcVehicle.js';
 
-alt.log("[NPCVehicleHandler] Loaded MainHandler")
+alt.log("[NPCVehicleHandler] Loaded MainHandler");
 
 class NPCVehicleHandler {
-    NPCs = undefined
-    Interval = undefined
+    NPCs = undefined;
+    interval = undefined;
 
     constructor() {
-        this.NPCs = []
+        this.NPCs = [];
 
-        alt.log("=================================")
-        alt.log("=== NPCVehicleHandler Started ===")
-        alt.log("=================================")
+        alt.log("=================================");
+        alt.log("=== NPCVehicleHandler Started ===");
+        alt.log("=================================");
 
-        this.Interval = alt.setInterval(() => {this._CheckPeds()},1000)
+        this.interval = alt.setInterval(() => this._checkPeds(), 1000);
     }
 
-    _CheckPeds() {
+    _checkPeds() {
         for(let i = 0; i < this.NPCs.length; i++) {
-            this.NPCs[i].CheckStatus()
+            this.NPCs[i].checkStatus();
         }
     }
 
-    AddNPCVehicle(Vehicle) {
-        native.setVehicleEngineOn(Vehicle.scriptID, true, true, false)
+    addNPCVehicle(vehicle) {
+        native.setVehicleEngineOn(vehicle.scriptID, true, true, false);
 
-        this.NPCs.push(new NPCVehicle(Vehicle))
+        this.NPCs.push(new NPCVehicle(vehicle));
     }
 
-    RemoveNPCVehicle(Vehicle) {
-        let index = this.NPCs.findIndex(x => x.Vehicle.id == Vehicle.id)
+    removeNPCVehicle(vehicle) {
+        let index = this.NPCs.findIndex(x => x.vehicle.id == vehicle.id);
         
-        if(index < 0) return
+        if(index < 0) return;
 
-        let removed = this.NPCs.splice(index, 1)
+        let removed = this.NPCs.splice(index, 1);
 
-        removed[0].delete()
+        removed[0].delete();
     }
 
-    UpdateNetOwner(vehicle, state, transfer) {
-        let index = this.NPCs.findIndex(x => x.Vehicle.id == vehicle.id)
+    updateNetOwner(vehicle, state, transfer) {
+        let index = this.NPCs.findIndex(x => x.Vehicle.id == vehicle.id);
         
-        if(index < 0) return
+        if(index < 0) return;
 
-        this.NPCs[index].updateNetOwner(state, transfer)
+        this.NPCs[index].updateNetOwner(state, transfer);
     }
 }
 
-export let NPCVehHandler = new NPCVehicleHandler()
+export const NPCVehHandler = new NPCVehicleHandler();

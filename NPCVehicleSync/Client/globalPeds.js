@@ -1,31 +1,30 @@
-import * as alt from 'alt'
-import * as native from 'natives'
+import * as alt from 'alt';
+import * as native from 'natives';
 
-alt.log("[NPCVehicleHandler] Loaded GlobalPeds")
+alt.log("[NPCVehicleHandler] Loaded GlobalPeds");
 
 class GlobalPeds {
-    Peds = undefined
+    peds = undefined;
+
     constructor() {
-        this.Peds = []
-        alt.setInterval(() => {this._filterPeds()},2000);
+        this.peds = []
+        alt.setInterval(() => this._filterPeds(), 2000);
     }
 
     addPed(handle) {
-        this.Peds.push(handle)
+        this.peds.push(handle);
     }
 
     _filterPeds() {
-        for(let i = 0; i < this.Peds.length; i++) {
-            if(!native.isEntityAPed(this.Peds[i])) continue
-            if(native.isPedInAnyVehicle(this.Peds[i], true)) continue
+        for(let i = 0; i < this.peds.length; i++) {
+            if(!native.isEntityAPed(this.peds[i])) continue;
+            if(native.isPedInAnyVehicle(this.peds[i], true)) continue;
     
-            native.deletePed(this.Peds[i])
+            native.deletePed(this.peds[i]);
         }
     
-        this.Peds = this.Peds.filter(x => {
-            return x != null && x != undefined && native.isEntityAPed(x)
-        })
+        this.peds = this.peds.filter(x => x != null && x != undefined && native.isEntityAPed(x));
     }
 }
 
-export let PedHandler = new GlobalPeds()
+export const PedHandler = new GlobalPeds();

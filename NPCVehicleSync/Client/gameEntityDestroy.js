@@ -1,11 +1,11 @@
-import * as alt from 'alt'
-import { NPCVehHandler } from './npcVehicleHandler.js'
+import * as alt from 'alt';
+import { NPCVehHandler } from './npcVehicleHandler.js';
 
-alt.log("[NPCVehicleHandler] Loaded GameEntityDestroy")
+alt.log("[NPCVehicleHandler] Loaded GameEntityDestroy");
 
 alt.on("gameEntityDestroy", entity => {
-    if(!entity instanceof alt.Vehicle) return
-    if(!entity.hasStreamSyncedMeta("NPCVehicle")) return
+    if(!entity instanceof alt.Vehicle) return;
+    if(!entity.hasStreamSyncedMeta("NPCVehicle")) return;
 
-    NPCVehHandler.RemoveNPCVehicle(entity)
-})
+    NPCVehHandler.removeNPCVehicle(entity);
+});

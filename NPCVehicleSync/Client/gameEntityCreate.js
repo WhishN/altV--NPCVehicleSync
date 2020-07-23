@@ -1,11 +1,11 @@
-import * as alt from 'alt'
-import { NPCVehHandler } from './npcVehicleHandler.js'
+import * as alt from 'alt';
+import { NPCVehHandler } from './npcVehicleHandler.js';
 
-alt.log("[NPCVehicleHandler] Loaded GameEntityCreate")
+alt.log("[NPCVehicleHandler] Loaded GameEntityCreate");
 
 alt.on("gameEntityCreate", entity => {
-    if(!entity instanceof alt.Vehicle) return
-    if(!entity.hasStreamSyncedMeta("NPCVehicle")) return
+    if(!entity instanceof alt.Vehicle) return;
+    if(!entity.hasStreamSyncedMeta("NPCVehicle")) return;
 
-    NPCVehHandler.AddNPCVehicle(entity)
-})
+    NPCVehHandler.addNPCVehicle(entity);
+});

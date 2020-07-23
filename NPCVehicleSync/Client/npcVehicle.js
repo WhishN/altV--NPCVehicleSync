@@ -1,97 +1,92 @@
-import * as alt from 'alt'
-import * as native from 'natives'
-import { PedHandler } from './globalPeds.js'
+import * as alt from 'alt';
+import * as native from 'natives';
+import { PedHandler } from './globalPeds.js';
 
-alt.log("[NPCVehicleHandler] Loaded NPCVehicle")
+alt.log("[NPCVehicleHandler] Loaded NPCVehicle");
 
 export class NPCVehicle {
-    Vehicle = undefined
-    Ped = undefined
-    NetOwner = false
-    IsCreated = false
-    LastDownCheck = false
+    vehicle = undefined;
+    ped = undefined;
+    netOwner = false;
+    isCreated = false;
+    lastDownCheck = false;
 
-    constructor(Vehicle) {
-        this.Vehicle = Vehicle
-        this._createPed()
+    constructor(vehicle) {
+        this.vehicle = vehicle;
+        this._createPed();
     }
-    _createPed(tryNumber = 0) {
-        if(tryNumber > 10) return
 
-        if(this.Vehicle.scriptID == 0) {
-            alt.setTimeout(() => {this._createPed(++tryNumber)}, 25)
-            return
+    _createPed(tryNumber = 0) {
+        if(tryNumber > 10) return;
+
+        if(this.vehicle.scriptID == 0) {
+            alt.setTimeout(() => this._createPed(++tryNumber), 25);
+            return;
         }
 
-        this.Ped = native.createRandomPedAsDriver(this.Vehicle.scriptID, true)
-        native.setVehicleDoorsLocked(this.Vehicle.scriptID, 4)
+        this.ped = native.createRandomPedAsDriver(this.vehicle.scriptID, true);
+        native.setVehicleDoorsLocked(this.vehicle.scriptID, 4);
         alt.setTimeout(() => {
-            this._setCreated()
+            this._setCreated();
         }, 100);
     }
 
     _setCreated() {
-        this.IsCreated = true
-        if(this.NetOwner) {
-            this._assignTask()
-        }
-        PedHandler.addPed(this.Ped)
+        this.isCreated = true;
+        if(this.netOwner) this._assignTask();
+        PedHandler.addPed(this.ped);
     }
 
     _assignTask() {
-        if(!this.IsCreated || !this.NetOwner) return
+        if(!this.isCreated || !this.netOwner) return
 
-        native.taskVehicleDriveWander(this.Ped, this.Vehicle.scriptID, 20, 786491);
+        native.taskVehicleDriveWander(this.ped, this.vehicle.scriptID, 20, 786491);
     }
     
     _clearTask(transfer) {
-        if(!this.IsCreated || this.NetOwner) return 
-        native.clearPedTasksImmediately(this.Ped)
+        if(!this.isCreated || this.netOwner) return; 
+        native.clearPedTasksImmediately(this.ped);
         
-        if(!transfer) {
-            native.setEntityVelocity(this.Vehicle, 0, 0, 0)
-        }
+        if(!transfer) native.setEntityVelocity(this.vehicle, 0, 0, 0);
     }
 
-    _CheckStuck() {
-        let roll = native.getEntityRoll(this.Vehicle.scriptID)
+    _checkStuck() {
+        let roll = native.getEntityRoll(this.vehicle.scriptID);
         if(roll < 80 && roll > -80) {
-            this.LastDownCheck = false
-            return
+            this.lastDownCheck = false;
+            return;
         }
         
-        if(this.LastDownCheck) {
-            native.setVehicleOnGroundProperly(this.Vehicle.scriptID, 5.0)
-            this.LastDownCheck = false
+        if(this.lastDownCheck) {
+            native.setVehicleOnGroundProperly(this.vehicle.scriptID, 5.0);
+            this.lastDownCheck = false
             return
         }
 
-        this.LastDownCheck = true
+        this.lastDownCheck = true;
     }
 
-    CheckStatus() {
-        if(this.NetOwner) {
-            this._CheckStuck()
-        }
+    checkStatus() {
+        if(this.netOwner) this._checkStuck();
 
-        if(native.getPedInVehicleSeat(this.Vehicle.scriptID, -1, undefined) == 0) {
-            this._createPed()
-            return
+        if(native.getPedInVehicleSeat(this.vehicle.scriptID, -1, undefined) == 0) {
+            this._createPed();
+            return;
         }
-        if(!native.getIsTaskActive(this.Ped, 151)) {
-            this._assignTask()
-            return
+        if(!native.getIsTaskActive(this.ped, 151)) {
+            this._assignTask();
+            return;
         }
     }
 
     updateNetOwner(state, transfer) {
-        this.NetOwner = state
+        this.netOwner = state;
 
-        if(state) this._assignTask()
-        else this._clearTask(transfer)
+        if(state) this._assignTask();
+        else this._clearTask(transfer);
     }
 
     delete() {
-        native.deleteEntity(this.Ped)
+        native.deleteEntity(this.ped);
     }
 }
