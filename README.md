@@ -1,5 +1,8 @@
 # `alt:V NPCVehicleSync`
 
+## This Plugin is outdated at this Moment.
+## An update will be delivered within this month probably
+
 This is an experimental plugin for your alt:V Server.
 ***
 ## **Features**
