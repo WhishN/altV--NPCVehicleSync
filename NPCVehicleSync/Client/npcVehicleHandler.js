@@ -41,7 +41,7 @@ class NPCVehicleHandler {
     }
 
     updateNetOwner(vehicle, state, transfer) {
-        let index = this.NPCs.findIndex(x => x.Vehicle.id == vehicle.id);
+        let index = this.NPCs.findIndex(x => x.vehicle.id == vehicle.id);
         
         if(index < 0) return;
 
