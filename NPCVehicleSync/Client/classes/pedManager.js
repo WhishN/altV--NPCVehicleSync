@@ -17,7 +17,7 @@ alt.setInterval(() => {
     List.forEach(ped => {
         if(!game.isPedInAnyVehicle(ped, true)) {
             game.deletePed(ped);
-            alt.log("Removed Homeless Ped");
+            alt.log("Error pm-00");
         }
     })
     List = List.filter(x => x > 0);
