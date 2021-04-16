@@ -1,0 +1,23 @@
+{
+
+	/* Allow Starting Automatically */
+	"AutoStart": true,
+	/* How Many Vehicles should be Spawned:
+	 * Recommende Max Total: 1500; */
+	"MaxAmount" : 900,
+	"Vehicles" : [
+		"adder",
+		"sultan2",
+		"nero2", 
+		"rumpo"
+	],
+	"MaxBigAmount": 100,
+	"BigVehicles": [
+		"mule2",
+		"mule3"
+	],
+	/* Vehicle Colors will be randomly Chosen. Primary and Secondary will be same */
+	"Colors": [
+		1, 1, 5, 5, 10, 10
+	]
+}
