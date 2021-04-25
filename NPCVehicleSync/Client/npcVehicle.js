@@ -69,7 +69,7 @@ export class NPCVehicle {
     checkStatus() {
         if(this.netOwner) this._checkStuck();
 
-        if(native.getPedInVehicleSeat(this.vehicle.scriptID, -1, undefined) == 0) {
+        if(vehicle.valid && !native.isPedInVehicle(this.ped, this.vehicle.scriptID, true) && native.getVehicleEngineHealth(this.vehicle.scriptID) > 300) {
             this._createPed();
             return;
         }
