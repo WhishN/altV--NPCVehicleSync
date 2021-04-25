@@ -24,9 +24,9 @@ export class NPCVehicle {
             return;
         }
 
-        this.ped = native.createRandomPedAsDriver(this.vehicle.scriptID, true);
         native.setVehicleDoorsLocked(this.vehicle.scriptID, 4);
         alt.setTimeout(() => {
+            this.ped = native.createPedInsideVehicle(this.vehicle, 5, alt.hash('a_m_m_golfer_01'), -1, false, false);
             this._setCreated();
         }, 100);
     }
