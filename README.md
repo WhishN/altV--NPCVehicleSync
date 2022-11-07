@@ -21,6 +21,3 @@ Vehicles can desync if there is no netowner at all for a vehicle
 #### Anything that is related to this can be done via pull request
 #### There won't be any support via DM in Discord
 ### [alt:V Discord](https://discord.gg/q3zUUEC) | [alt:V Homepage](https://altv.mp/)
-***
-### This System will be used on the alt:V Racing Server. Want to find out more? 
-#### [Heat:V Discord](https://discord.gg/979YxaB)
